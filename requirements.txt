@@ -1,0 +1,7 @@
+pandas
+numpy
+torch
+torchvision
+Flask
+Flask-Cors
+transformers==4.4.2
