@@ -1,4 +1,4 @@
-# KT - BERT
+# BERT-Backend
 ## Pre-requisitos 🔧
 
 - Ubicarse en el proyecto
@@ -6,3 +6,4 @@
 ```
 pip install -r requirements.txt
 ```
+- python main.py
