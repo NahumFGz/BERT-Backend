@@ -2,9 +2,9 @@ import pandas as pd
 
 from textwrap import wrap
 
-from tools.LoadModel import bert_classifier
-from tools.Preprocessing import preprocessing_for_bert
-from tools.Predict import bert_predict
+from nlpmodule.tools.LoadModel import bert_classifier
+from nlpmodule.tools.Preprocessing import preprocessing_for_bert
+from nlpmodule.tools.Predict import bert_predict
 
 def classifier_treatment_load(text, max_len=300, batch_size=16):
     from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler

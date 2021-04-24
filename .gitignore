@@ -1,3 +1,2 @@
-Twitter_model1.pth
-model1.pth
-./weights/*
+/nlpmodule/weights/*
+/venv/*

@@ -1,4 +1,4 @@
-from tools.BertClassifier import BertClassifier
+from nlpmodule.tools.BertClassifier import BertClassifier
 from services.api import app
 
 def main():
