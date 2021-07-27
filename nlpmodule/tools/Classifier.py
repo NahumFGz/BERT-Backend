@@ -29,9 +29,9 @@ def classifier_treatment_load(text, max_len=300, batch_size=16):
     print("\n".join(wrap(text)))
 
     #print(f"Expert: {label}")
-    print(f"Model : {labels[id_y_pred[0]]} - {probs[0][id_y_pred[0]]:.3f}")
+    #print(f"Model : {labels[id_y_pred[0]]} - {probs[0][id_y_pred[0]]:.3f}")
     return {
         "text": text,
-        "label": labels[id_y_pred[0]],
-        "prob": float(probs[0][id_y_pred[0]])
+        "label_predict": labels[id_y_pred[0]],
+        "label_probability": float(probs[0][id_y_pred[0]])
     }

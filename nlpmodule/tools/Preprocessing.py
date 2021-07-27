@@ -1,4 +1,39 @@
+import re
 import torch
+
+def text_preprocessing(text):
+    """
+    - Remove entity mentions (eg. '@united')
+    - Correct errors (eg. '&amp;' to '&')
+    @param    text (str): a string to be processed.
+    @return   text (Str): the processed string.
+    """
+    # Remove '@name'
+    text = re.sub(r'(@.*?)[\s]', ' ', text)
+
+    # Replace '&amp;' with '&'
+    text = re.sub(r'&amp;', '&', text)
+
+    # Replace '&amp' with '&'
+    text = re.sub(r'&amp', '&', text)
+
+    # Replace " with ''
+    text = re.sub(r'"', '', text)
+
+    # Remove trailing whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    # Replace HashTags
+    text = re.sub(r'PorqueMeQuedé', 'Porque me quedé', text)
+    text = re.sub(r'PorqueMeFui', 'Porque me fui', text)
+    text = re.sub(r'NoMas', 'no mas', text)
+    text = re.sub(r'nomas', 'no mas', text)
+    text = re.sub(r'NuncaMás', 'Nunca Más', text)
+    text = re.sub(r'NuncaMas', 'Nunca Más', text)
+    text = re.sub(r'nuncamas', 'Nunca Más', text)
+    text = re.sub(r'#', '', text)
+
+    return text
 
 def preprocessing_for_bert(data, tokenizer, max_len=300):
     """Perform required preprocessing steps for pretrained BERT.
@@ -21,7 +56,7 @@ def preprocessing_for_bert(data, tokenizer, max_len=300):
         #    (5) Create attention mask
         #    (6) Return a dictionary of outputs
         encoded_sent = tokenizer.encode_plus(
-            text=sent,  # Preprocess sentence
+            text=text_preprocessing(sent),  # Preprocess sentence
             add_special_tokens=True,        # Add `[CLS]` and `[SEP]`
             max_length=max_len,             # Max length to truncate/pad
             padding="max_length",           # Pad sentence to max length, # pad_to_max_length=True
