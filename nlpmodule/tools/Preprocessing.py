@@ -22,15 +22,11 @@ def text_preprocessing(text):
 
     # Remove trailing whitespace
     text = re.sub(r'\s+', ' ', text).strip()
+    
+    #Split HashTags
+    text = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', text)
 
     # Replace HashTags
-    text = re.sub(r'PorqueMeQuedé', 'Porque me quedé', text)
-    text = re.sub(r'PorqueMeFui', 'Porque me fui', text)
-    text = re.sub(r'NoMas', 'no mas', text)
-    text = re.sub(r'nomas', 'no mas', text)
-    text = re.sub(r'NuncaMás', 'Nunca Más', text)
-    text = re.sub(r'NuncaMas', 'Nunca Más', text)
-    text = re.sub(r'nuncamas', 'Nunca Más', text)
     text = re.sub(r'#', '', text)
 
     return text
