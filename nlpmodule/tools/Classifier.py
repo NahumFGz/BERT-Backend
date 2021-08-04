@@ -26,4 +26,4 @@ def classifier_treatment_load(text, max_len=300, batch_size=16):
 
     # Get accuracy over the test set
     id_y_pred = probs.argmax(axis=1)
-    return labels[id_y_pred[0]], float(probs[0][id_y_pred[0]])*0.9001
+    return labels[id_y_pred[0]], round(float(probs[0][id_y_pred[0]])*0.9001,4)*100
