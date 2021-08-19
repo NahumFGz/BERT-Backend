@@ -35,3 +35,29 @@ ps uax | grep python3 --con esto ves los procesos y copias el PID
 e.g.: ubuntu   18405  0.5  3.3 1133080 267412 pts/0  S    02:19   0:01 python3 main.py
 
 sudo kill -9 18405  -PARA MATAR EL SERVICIO
+
+#Crear daemon
+sudo nano /home/ubuntu/BERT-Backend-Flask/run-venv.sh             #Crear el batch que va correr el venv
+sudo chmod +x /home/ubuntu/BERT-Backend-Flask/run-venv.sh     #Cambiar permisos
+sudo nano /home/ubuntu/BERT-Backend-Flask/run-startup.sh             #Crear el batch que va correr el los servicios de python
+sudo chmod +x /home/ubuntu/BERT-Backend-Flask/run-startup.sh     #Cambiar permisos
+
+sudo nano /etc/systemd/system/my-startup.service   #Registrar el servicio
+sudo systemctl enable my-startup.service                    #Correr el servicio
+
+sudo reboot                                                    #Le metemos su reiniciada para probar
+systemctl status my-startup.service                #Verificar el estado del servicio
+sudo systemctl disable my-startup.service      #Para modificar los scripts siempre desactivar
+ps uax | grep python3                                      #Ver si corrió el servicio
+
+#Registro del servicio
+/*
+[Unit]
+Description=Startup
+
+[Service]
+ExecStart=/home/ubuntu/BERT-Backend-Flask/run-startup.sh
+
+[Install]
+WantedBy=multi-user.target
+*/
