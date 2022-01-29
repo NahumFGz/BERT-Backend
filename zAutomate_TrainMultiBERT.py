@@ -6,8 +6,8 @@ balanceo      = 'normal'            # [normal, over, under]
 test_sz       = 0.1
 learning_rate = 3e-5               # [5e-5, 3e-5, 2e-5]
 num_epochs    = 1                  # [2,3,4,5,6,7,8,9,10]
-flg_preproc   = 'processed'          #['original', 'processed']
 rand_state    = 2020
+flg_preproc   = 'processed'          #['original', 'processed']
 
 """1. MultiBERT.ipynb
 
