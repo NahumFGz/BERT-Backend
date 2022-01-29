@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-"""# **PARAMETROS**"""
 model         = 'SpanBERT'
-dataset_name  = 'Total_15_19'      # [Total_15_19, Total_20_24, Total_25_29]
-balanceo      = 'normal'            # [normal, over, under]
+dataset_name  = 'Total_15_19'      
+balanceo      = 'normal'           
 test_sz       = 0.1
-learning_rate = 3e-5               # [5e-5, 3e-5, 2e-5]
-num_epochs    = 1                  # [2,3,4,5,6,7,8,9,10]
+learning_rate = 3e-5               
+num_epochs    = 1                  
+flg_preproc   = 'processed'
 rand_state    = 2020
-flg_preproc   = 'processed'          #['original', 'processed']
+
 
 """1. MultiBERT.ipynb
 
